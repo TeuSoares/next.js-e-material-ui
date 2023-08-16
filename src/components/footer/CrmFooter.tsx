@@ -10,12 +10,12 @@ export default function CrmFooter() {
       component="footer"
       sx={{
         bgcolor: 'primary.main',
-        padding: '1em 0'
+        padding: '1.5em 0'
       }}
     >
       <CrmContainer>
         <Typography
-          variant="subtitle2"
+          variant="h6"
           color="white.main"
           textAlign={{ xs: 'center', sm: 'right' }}
         >

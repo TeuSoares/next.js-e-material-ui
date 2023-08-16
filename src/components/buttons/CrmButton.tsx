@@ -36,6 +36,7 @@ export default function CrmButton({
       color={color}
       sx={{
         padding: '16.5px 14px',
+        width: { xs: '100%', sm: 'auto' },
         ...customCss
       }}
     >

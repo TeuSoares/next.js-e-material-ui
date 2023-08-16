@@ -46,9 +46,13 @@ let theme = createTheme({
         body {
           background-color: #eeeeee;
           font-family: 'Roboto';
-        }  
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
         main {
           padding: 3rem 0;
+          flex: 1 0 auto;
         }
       `
     }
