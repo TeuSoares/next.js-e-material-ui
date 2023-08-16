@@ -30,16 +30,17 @@ export default function Home() {
         Boletos 2º via
       </Typography>
       <CrmBase>
-        <Stack
-          direction={{ sx: 'column', mid: 'row' }}
-          justifyContent={{ md: 'space-between' }}
-          mb={4}
+        <CrmForm
+          onSubmit={handleFiltersDuplicatas}
+          customCss={{
+            marginBottom: '2em'
+          }}
         >
-          <Box width={{ mid: '55%' }} mb={{ xs: 2, mid: 0 }}>
-            <Typography variant="overline" fontWeight="bold" mb={1}>
-              Filtrar por períodos de vencimento
-            </Typography>
-            <CrmForm onSubmit={handleFiltersDuplicatas}>
+          <Stack direction={{ mid: 'row' }}>
+            <Box sx={{ width: { xs: '100%', mid: '50%', lg: '40%' } }}>
+              <Typography variant="overline" fontWeight="bold" display="block">
+                Períodos de vencimento
+              </Typography>
               <CrmInputDate
                 label="Data Inicial"
                 name="dataInicial"
@@ -55,65 +56,59 @@ export default function Home() {
                 rules={{ required: 'Esse campo é obrigátorio' }}
                 customCss={{
                   display: { xs: 'block', sm: 'inline-flex' },
-                  marginRight: { sm: '1em' },
-                  marginBottom: { xs: '1em', sm: '0' }
+                  marginRight: { sm: '1em' }
                 }}
               />
-              <CrmButton
-                text={<FilterAltIcon />}
-                type="submit"
-                customCss={{
-                  width: { xs: '100%', sm: 'auto' }
-                }}
-              />
-            </CrmForm>
-          </Box>
-          <Box width={{ mid: '35%' }} mb={{ xs: 2, mid: 0 }}>
-            <Typography variant="overline" fontWeight="bold" mb={1}>
-              Pesquisar por duplicata
-            </Typography>
-            <CrmForm onSubmit={handleSearchDuplicata}>
-              <Box sx={{ paddingTop: '8px' }}>
+            </Box>
+            <Box
+              sx={{
+                width: { xs: '100%', mid: '50%', lg: '60%' },
+                marginTop: { xs: '1.7em', mid: '0' }
+              }}
+            >
+              <Typography variant="overline" fontWeight="bold" display="block">
+                Duplicata
+              </Typography>
+              <Stack
+                justifyContent={{ mid: 'space-between' }}
+                marginTop="8px"
+                flexDirection={{ sm: 'row' }}
+              >
                 <CrmInputText
                   name="codigo"
                   label="Código"
                   rules={{ required: 'Esse campo é obrigátorio' }}
                   customCss={{
                     width: { xs: '100%', sm: 'auto' },
-                    marginBottom: { xs: '1em', sm: '0' },
-                    marginRight: { sm: '1em' }
+                    marginBottom: { xs: '2em', sm: '0' },
+                    marginRight: { xs: '1em', mid: '0' }
                   }}
                 />
-                <CrmButton
-                  text={<SearchIcon />}
-                  type="submit"
-                  customCss={{
-                    width: { xs: '100%', sm: 'auto' }
-                  }}
-                />
-              </Box>
-            </CrmForm>
-          </Box>
-          <Box
-            width={{ mid: '10%' }}
-            display="flex"
-            justifyContent={{ mid: 'flex-end' }}
-            alignSelf={{ mid: 'flex-end' }}
-          >
-            <CrmButton
-              text="Limpar"
-              startIcon={<DeleteIcon />}
-              color="red"
-              customCss={{
-                width: { xs: '100%', sm: 'auto' },
-                marginTop: { xs: '1em', sm: '0' }
-              }}
-            />
-          </Box>
-        </Stack>
-        <Box>
-          <CrmTable />
-        </Box>
+                <Box>
+                  <CrmButton
+                    text="Pesquisar"
+                    startIcon={<SearchIcon />}
+                    type="submit"
+                    customCss={{
+                      width: { xs: '100%', sm: 'auto' },
+                      marginRight: '1em'
+                    }}
+                  />
+                  <CrmButton
+                    text="Limpar"
+                    startIcon={<DeleteIcon />}
+                    color="red"
+                    customCss={{
+                      width: { xs: '100%', sm: 'auto' },
+                      marginTop: { xs: '1em', sm: '0' }
+                    }}
+                  />
+                </Box>
+              </Stack>
+            </Box>
+          </Stack>
+        </CrmForm>
+        <CrmTable />
       </CrmBase>
     </CrmContainer>
   );
