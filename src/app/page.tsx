@@ -21,9 +21,6 @@ export default function Home() {
 
   return (
     <CrmContainer>
-      <Typography variant="h1" mb={3} color="primary.main">
-        Boletos 2º via
-      </Typography>
       <CrmBase>
         <CrmForm
           onSubmit={handleFiltersDuplicatas}
@@ -103,7 +100,30 @@ export default function Home() {
             </Box>
           </Stack>
         </CrmForm>
-        {/*<CrmTable />*/}
+        <CrmTable
+          rows={[
+            {
+              id: '1',
+              emissao: '17/08/2023',
+              duplicata: '1234567',
+              parcela: 'A/G',
+              nosso_numero: '78956423189',
+              vencimento: '20/09/2023',
+              valor: 'R$ 2.398,57',
+              banco: 'BRASIL'
+            },
+            {
+              id: '2',
+              emissao: '17/08/2023',
+              duplicata: '1234567',
+              parcela: 'A/G',
+              nosso_numero: '78956423189',
+              vencimento: '20/09/2023',
+              valor: 'R$ 2.398,57',
+              banco: 'BRASIL'
+            }
+          ]}
+        />
       </CrmBase>
     </CrmContainer>
   );
