@@ -1,8 +1,11 @@
+'use client';
+
 import type { Metadata } from 'next';
 
 import CrmFooter from '@/components/footer/CrmFooter';
 import CrmNavbar from '@/components/navbar/CrmNavbar';
 
+import AuthContextProvider from '@/context/AuthContext';
 import ThemeRegistry from '@/themes/ThemeRegistry';
 
 export const metadata: Metadata = {
@@ -25,11 +28,13 @@ export default function RootLayout({
         <meta name="viewport" content="initial-scale=1, width=device-width" />
       </head>
       <ThemeRegistry>
-        <body>
-          <CrmNavbar />
-          <main>{children}</main>
-          <CrmFooter />
-        </body>
+        <AuthContextProvider>
+          <body>
+            <CrmNavbar />
+            <main>{children}</main>
+            <CrmFooter />
+          </body>
+        </AuthContextProvider>
       </ThemeRegistry>
     </html>
   );
